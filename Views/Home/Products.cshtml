@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Products";
+}
+@model e_commerce.Models.Product
+<div class="row mt-5">
+  <form action="SearchProduct" method="post">
+    <div class="span2 mt-4"><input type="text" name="SearchStr"></div>
+    <div class="span10"><button>Filter</button></div>
+  </form>
+</div>
+<div class="row">
+  <div class="col-sm-5 col-md-6">
+      <form action="createprod" method="post">
+         <h1>Add a new product</h1>
+        <div class="form-group mt-5">
+            <label asp-for="ProdName"></label>
+            <input type="text" class="form-control" asp-for="ProdName">
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductImg"></label>
+            <input type="text" class="form-control" asp-for="ProductImg">
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductDesc"></label>
+            <textarea class="form-control vresize" rows="5" asp-for="ProductDesc"></textarea>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProductQty"></label>
+            <select class="form-control" asp-for="ProductQty">
+            <option>100</option>
+            <option>200</option>
+            <option>300</option>
+            <option>400</option>
+            <option>500</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success ml-auto">Submit</button>
+        @TempData["updatemsg"]
+    </form>
+  </div>
+</div>
+ <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+    @{                   
+        @foreach (var product in @ViewBag.all_products)
+            {
+                <p>@product.ProdName</p>
+                <p><img src="@product.ProductImg" alt="Image" class="img-thumbnail" style="width: 25%"></p>
+               
+                @foreach (var orders in @ViewBag.all_transactions)
+                {
+                    @if(@orders.ProductId == @product.ProductId)
+                    {
+                        <p>( @(@product.ProductQty - @orders.OrderQty) left)</p>
+                    }
+                    else {
+                         <p>( @product.ProductQty left )</p>
+                    }
+                }        
+            }
+        }
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+

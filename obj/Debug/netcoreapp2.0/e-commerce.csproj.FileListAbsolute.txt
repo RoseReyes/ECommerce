@@ -1,0 +1,10 @@
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/bin/Debug/netcoreapp2.0/e-commerce.deps.json
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/bin/Debug/netcoreapp2.0/e-commerce.runtimeconfig.json
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/bin/Debug/netcoreapp2.0/e-commerce.runtimeconfig.dev.json
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/bin/Debug/netcoreapp2.0/e-commerce.dll
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/bin/Debug/netcoreapp2.0/e-commerce.pdb
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/obj/Debug/netcoreapp2.0/e-commerce.csproj.CoreCompileInputs.cache
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/obj/Debug/netcoreapp2.0/e-commerce.AssemblyInfoInputs.cache
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/obj/Debug/netcoreapp2.0/e-commerce.AssemblyInfo.cs
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/obj/Debug/netcoreapp2.0/e-commerce.dll
+/Users/rose/Desktop/DojoAssignments/netCore/ASP.Net/EntityFramework/e-commerce/obj/Debug/netcoreapp2.0/e-commerce.pdb

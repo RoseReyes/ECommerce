@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model e_commerce.Models.Product
+
+<div class="row MainContents">
+  <div class="row">
+     <form action="SearchDashboard" method ="post">
+        <div class="span2 mt-4"><input type="text" name="SearchStr" value="Search"></div>
+        <div class="span10"><button>Filter</button></div>
+    </form>
+  </div>
+  <div class="row justify-content-center">
+      @{                   
+          @foreach (var product in @ViewBag.all_products)
+            {
+                <div class="row justify-content-center">
+                    <p class="col-1">@product.ProdName</p>
+                    <img src="@product.ProductImg" alt="Image" class="img-thumbnail" style="width: 10%">
+                  @foreach (var orders in @ViewBag.all_transactions)
+                  {
+                      @if(@orders.ProductId == @product.ProductId)
+                      {
+                          <p class="col-1">( @(@product.ProductQty - @orders.OrderQty) left)</p>
+                      }
+                      else {
+                          <p class="col-1">( @product.ProductQty left )</p>
+                      }
+                  }
+                </div>        
+            }
+        }
+  </div>
+  <div class="row">
+      <div class="col-1">
+        <h3>Recent Orders</h3>
+         @{
+                @foreach (var cust in @ViewBag.all_orders)
+                {
+                  double hours = DateTime.Now.Subtract(@cust.OrderDate).TotalHours;
+                  int duration = (int) hours;
+
+                 <div class="row">
+                      @if(duration > 24)
+                          {
+                            double days = DateTime.Now.Subtract(@cust.OrderDate).TotalDays;
+                            int dayduration = (int) days;
+                           <p>@cust.Customer.CustomerName purchased @cust.OrderQty @cust.Product.ProdName (dayduration days ago)..</p>
+                          }
+                      else 
+                          {
+                             <p>@cust.Customer.CustomerName purchased @cust.OrderQty @cust.Product.ProdName (duration hours ago)..</p>
+                          }
+                  </div>
+                }
+            }
+      </div>
+      <div class="col-1">
+        <h3>New Customers</h3>
+         @{
+                @foreach (var cust in @ViewBag.all_orders)
+                {
+                  double hours = DateTime.Now.Subtract(@cust.OrderDate).TotalHours;
+                  int duration = (int) hours;
+                  
+                 <div class="row">
+                      @if(duration > 24)
+                          {
+                            double days = DateTime.Now.Subtract(@cust.OrderDate).TotalDays;
+                            int dayduration = (int) days;
+                           <p>@cust.Customer.CustomerName purchased @cust.OrderQty @cust.Product.ProdName (dayduration days ago)..</p>
+                          }
+                       else 
+                          {
+                             <p>@cust.Customer.CustomerName purchased @cust.OrderQty @cust.Product.ProdName (duration hours ago)..</p>
+                          }
+                  </div>
+                }
+            }
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+@{
+    ViewData["Title"] = "Customer";
+}
+@model e_commerce.Models.Customer
+<div class="row">
+  <div class="col-sm-5 col-md-6">
+      <form action="createcust" method="post">
+         <h1>Add a new customer</h1>
+        <div class="form-group mt-5">
+            <label asp-for="CustomerName"></label>
+            <input type="text" class="form-control" asp-for="CustomerName">
+            @TempData["error"]
+        </div>
+        <button type="submit" class="btn btn-success ml-auto">Add</button>
+    </form>
+  </div>
+</div>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @{
+            @foreach(var users in @ViewBag.all_users)
+            {
+                <tr>
+                <td>@users.CustomerName</td>
+                <td>@users.Created_at.ToString("MMM dd, yyyy")</td>
+                <form action="deletecust" method="post">
+                    <input type="hidden" name ="custid" value="@users.CustomerId">
+                    <td><button type="submit" class="btn btn-danger ml-auto">Remove</button></td>
+                </form>
+                </tr>
+            }
+            }
+        </tbody>
+    </table>
+    <div class="row mt-5">
+        <input type="text" name="search" value="search...">
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

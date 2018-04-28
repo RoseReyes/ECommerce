@@ -1,0 +1,83 @@
+@{
+    ViewData["Title"] = "Order";
+}
+@model e_commerce.Models.Order
+<div class="row">
+  <div class="col-sm-5 col-md-6">
+      <form action="createorder" method="post">
+         <h1>Add a new order</h1>
+    
+        <div class="form-group">
+            @{
+            <label for="CustomerName">Customer</label>
+            <select class="form-control" for="CustName" name="CustName">
+                @foreach (var cust in @ViewBag.all_users)
+                {
+                     <option>@cust.CustomerName</option>
+                }
+            </select>
+            }
+        </div>
+        <div class="form-group">
+            <label for="OrderQty">Order</label>
+            <select class="form-control" for="OrderQty" name="OrderQty">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            @{
+                <select class="form-control" for="ProdName" name="ProdName">
+                    @foreach (var prod in @ViewBag.all_products)
+                    {
+                        <option>@prod.ProdName</option>
+                    }
+                </select>
+            }
+        </div>
+        <button type="submit" class="btn btn-success ml-auto">Order</button>
+    </form>
+  </div>
+</div>
+ <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Product</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                @foreach (var cust in @ViewBag.all_orders)
+                {
+                    <tr>
+                        <td>@cust.Customer.CustomerName</td>
+                        <td>@cust.Product.ProdName</td>
+                        <td>@cust.OrderQty</td>
+                        <td>@cust.OrderDate.ToString("MMM dd yyyy")</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="row mt-5">
+        <div class="span2 mt-4 offset-auto">
+            <input type="text" name="search" value="filter..">
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
